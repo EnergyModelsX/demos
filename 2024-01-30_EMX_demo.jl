@@ -126,7 +126,7 @@ coal_source = RefSource(
     FixedProfile(9),    # opex_var
     FixedProfile(0),    # opex_fixed
     Dict(coal => 1),    # output
-    Data[],   			    # additional data (here nothing) 
+    Data[],   		    # additional data (here nothing) 
 )
 
 # ╔═╡ e50fdf31-2a12-4fbe-9c47-686dc10632ec
