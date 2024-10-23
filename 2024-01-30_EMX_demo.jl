@@ -365,24 +365,25 @@ md" The wind generation node is of type `NonDisRES` (Non-dispatchable renewable 
 inv_data_transmission = SingleInvData(
     FixedProfile(500_000),
     FixedProfile(50),
-	BinaryInvestment(FixedProfile(50)),
+	FixedProfile(0),                    # Start with intitial capacity = 0
+	BinaryInvestment(FixedProfile(50)), # Investment in additional capacity
     StudyLife(FixedProfile(50)),
 )
 
 
 # ╔═╡ 7a30713a-5beb-4597-b83e-d43dbf67a8d3
-transmission_data = [inv_data_transmission, emission_data]
+transmission_data = [inv_data_transmission]
 
 # ╔═╡ befeccf8-a0d1-4658-b6a2-d7103f13ecc8
 transmission_line = RefStatic(
-    "transline",                # id
-    power,                      # resource
-    FixedProfile(transmission_capacity),  # capacity
-    FixedProfile(0.1),          # transmission loss (ratio)
-    FixedProfile(0),   # opex_var
-    FixedProfile(0.1),          # opex_fixed
-    1,                          # directions
-    transmission_data,          # data
+    "transline",                			# id
+    power,                      			# resource
+    FixedProfile(transmission_capacity),  	# capacity
+    FixedProfile(0.1),          			# transmission loss (ratio)
+    FixedProfile(0),  						# opex_var
+    FixedProfile(0.1),          			# opex_fixed
+    1,                          			# directions
+    transmission_data,          			# data
 )
 
 # ╔═╡ 3fd372f7-3589-4281-b1bd-92255c20990e
@@ -2694,7 +2695,7 @@ version = "3.6.0+0"
 # ╠═86b1f5bf-16be-4330-8c3c-254153c03863
 # ╠═c7ebc721-126a-4675-ab4c-94e7af75b310
 # ╟─4e402681-7144-4969-914e-7782e8f7a1d1
-# ╠═a44bac08-5c9e-4a5e-91dc-3a4b6f92789a
+# ╟─a44bac08-5c9e-4a5e-91dc-3a4b6f92789a
 # ╟─f549a531-14c5-43c0-ac7b-315214af9d4c
 # ╟─0af9269e-6cae-4f15-b23a-c4ea138e5791
 # ╠═9c57324f-f798-4d37-8b7b-1bf46a8c6fd8
